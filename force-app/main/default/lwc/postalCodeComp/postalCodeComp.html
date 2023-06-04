@@ -1,0 +1,31 @@
+<!--
+  @description       : 
+  @author            : shubhranshu
+  @group             : 
+  @last modified on  : 06-04-2023
+  @last modified by  : shubhranshu
+-->
+<template>
+    <lightning-card  title="Postal Code Finder">
+        <div class="slds-var-m-around_large">
+            <lightning-layout vertical-align="end">
+                <lightning-layout-item flexibility="grow">
+                    <lightning-input type="search" value={postalCode} onchange={handlePostalcode} label="Enter Postal/Zip Code"></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item class="slds-var-p-left_small">
+                    <lightning-button label="Search" variant="brand" onclick={getMapLocations}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+            <br />
+            <template if:true={addressFound}>
+                <lightning-map
+                map-markers={mapMarkers}
+                zoom-level={zoomLevel}
+                list-view={listView}
+                show-footer
+              >
+              </lightning-map>
+            </template>
+    </div>
+    </lightning-card>
+</template>
